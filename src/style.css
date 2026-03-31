@@ -626,6 +626,7 @@ button:first-child {
   cursor: zoom-in;
 }
 
+
 /* ZOOM */
 .gallery-main:active {
   cursor: grabbing;
@@ -665,4 +666,46 @@ button:first-child {
 
 .dot.active {
   background: #C9A54C;
+}
+
+.project-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4;
+  overflow: hidden;
+  border-radius: 96px;
+}
+
+.project-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+/* principal */
+.img-main {
+  opacity: 1;
+  transition: 0.4s;
+}
+
+/* hover */
+.img-hover {
+  opacity: 0;
+  transform: scale(1.1);
+  transition: 0.4s;
+}
+
+/* efeito */
+.project-card:hover .img-main {
+  opacity: 0;
+}
+
+.project-card:hover .img-hover {
+  opacity: 1;
+  transform: scale(1);
 }

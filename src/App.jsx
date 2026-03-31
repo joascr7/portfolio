@@ -10,20 +10,25 @@ import acai3 from "./assets/acai3.png";
 import acai4 from "./assets/acai4.png";
 import acai5 from "./assets/acai5.png";
 import acai6 from "./assets/acai6.png";
+import acai7 from "./assets/acai7.png";
+import acai8 from "./assets/acai8.png";
 
 const projetos = [
   {
     nome: "App Açaí",
     desc: "Sistema completo com pedidos e pagamento Pix",
-    img: acai1,
-    imagens: [acai1, acai2, acai3, acai4, acai5, acai6],
+    imagens: [acai1, acai2, acai3, acai4, acai5, acai6, acai7, acai8],
+    capa: acai8, // 🔥 imagem principal
+    hover: acai7,
     link: "https://acai-daiane.vercel.app" // 🔥 CONFERE SE ESSE LINK EXISTE
   },
   {
-    nome: "Barbearia",
+    nome: "App Açai",
     desc: "Agendamento com controle de clientes",
-    img: barbeariaImg,
-    link: "https://SEU-APP-BARBEARIA.vercel.app"
+    imagens: [acai1, acai2, acai3, acai4, acai5, acai6, acai7, acai8],
+    hover: acai7,
+    capa: acai8, // 🔥 imagem principal
+    link: "https://acai-daiane.vercel.app" 
   }
 ];
 
@@ -184,6 +189,54 @@ export default function App() {
 
         </div>
       </motion.section>
+
+
+      <section id="projetos" className="projects">
+
+  <h2>Projetos</h2>
+
+  <div className="grid">
+    {projetos.map((p, i) => (
+  <motion.div
+  key={i}
+  className="project-card"
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: i * 0.15 }}
+  viewport={{ once: true }}
+  whileHover={{ scale: 1.03 }}
+>
+
+        {/* IMAGEM */}
+        <div className="project-img">
+     <img src={p.capa} className="img-main" />
+     <img src={p.hover || p.imagens?.[1]} className="img-hover" />
+       </div>
+
+        {/* TEXTO */}
+        <div className="project-info">
+          <h3>{p.nome}</h3>
+          <p>{p.desc}</p>
+
+          <div className="actions">
+            <button onClick={() => setPreview(p)}>
+              Ver telas
+            </button>
+
+            <button 
+              className="outline"
+              onClick={() => window.open(p.link, "_blank")}
+            >
+              Ver demo
+            </button>
+          </div>
+        </div>
+
+      </motion.div>
+    ))}
+  </div>
+
+</section>
 
       {/* CONTATO */}
       <section className="contact">
