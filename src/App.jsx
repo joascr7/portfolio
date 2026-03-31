@@ -24,7 +24,7 @@ const projetos = [
   },
   {
     nome: "App Açai",
-    desc: "Agendamento com controle de clientes",
+    desc: "Sistema completo com pedidos e pagamento Pix",
     imagens: [acai1, acai2, acai3, acai4, acai5, acai6, acai7, acai8],
     hover: acai7,
     capa: acai8, // 🔥 imagem principal
